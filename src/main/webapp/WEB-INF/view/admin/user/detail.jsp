@@ -10,7 +10,7 @@
                 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
                 <meta name="description" content="Hỏi Dân IT - Dự án laptopshop" />
                 <meta name="author" content="Hỏi Dân IT" />
-                <title>Dashboard</title>
+                <title>Detail user</title>
                 <link href="https://cdn.jsdelivr.net/npm/simple-datatables@7.1.2/dist/style.min.css" rel="stylesheet" />
                 <link href="/css/styles.css" rel="stylesheet" />
                 <script src="https://use.fontawesome.com/releases/v6.3.0/js/all.js" crossorigin="anonymous"></script>
@@ -33,45 +33,28 @@
                                     <div class="row">
                                         <div class="col-md-12 mx-auto">
                                             <div class="d-flex justify-content-between">
-                                                <h3>Table users</h3>
-                                                <a href="/admin/user/create" class="btn btn-primary">Create new
-                                                    user</a>
+                                                <h3> User detail with id = ${id}</h3>
                                             </div>
                                             <hr>
 
-                                            <table class="table table-bordered table-hover">
-                                                <thead>
-                                                    <tr>
-                                                        <th scope="col">ID</th>
-                                                        <th scope="col">Email</th>
-                                                        <th scope="col">full Name</th>
-                                                        <th scope="col">Action</th>
-                                                    </tr>
-                                                </thead>
-                                                <tbody>
-                                                    <c:forEach var="user" items="${users}">
-                                                        <tr>
-                                                            <th>${user.id}</th>
-                                                            <td>${user.email}</td>
-                                                            <td>${user.fullName}</td>
-                                                            <td>
-                                                                <a class="btn btn-success"
-                                                                    href="/admin/user/${user.id}">View</a>
-                                                                <a class="btn btn-warning"
-                                                                    href="/admin/user/update/${user.id}">Update</a>
-                                                                <a class="btn btn-danger"
-                                                                    href="/admin/user/delete/${user.id}">Delete</a>
-                                                            </td>
-                                                        </tr>
-                                                    </c:forEach>
-
-                                                </tbody>
-                                            </table>
+                                            <div class="card" style="width: 60%;">
+                                                <div class="card-header">
+                                                    User information
+                                                </div>
+                                                <ul class="list-group list-group-flush">
+                                                    <li class="list-group-item">ID:${user.id}</li>
+                                                    <li class="list-group-item">Email:${user.email}</li>
+                                                    <li class="list-group-item">Full Name:${user.fullName}</li>
+                                                    <li class="list-group-item">Address:${user.address}</li>
+                                                </ul>
+                                            </div>
+                                            <a href="/admin/user" class="btn btn-success">Back</a>
                                         </div>
 
                                     </div>
 
                                 </div>
+
                             </div>
 
                         </main>
