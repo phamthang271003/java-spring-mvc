@@ -14,6 +14,8 @@
                 <link href="https://cdn.jsdelivr.net/npm/simple-datatables@7.1.2/dist/style.min.css" rel="stylesheet" />
                 <link href="/css/styles.css" rel="stylesheet" />
                 <script src="https://use.fontawesome.com/releases/v6.3.0/js/all.js" crossorigin="anonymous"></script>
+                <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+
             </head>
 
             <body class="sb-nav-fixed">
@@ -34,7 +36,7 @@
                                         <div class="col-md-6 col-12 mx-auto">
                                             <h3>Update user</h3>
                                             <hr>
-                                            <form:form action="/admin/user/update" method="post"
+                                            <!-- <form:form action="/admin/user/update" method="post"
                                                 modelAttribute="newUser">
                                                 <div class="mb-3" style="display: none;">
                                                     <label class="form-label">Id:</label>
@@ -63,8 +65,71 @@
                                                 </div>
 
                                                 <button type="submit" class="btn btn-warning">Update</button>
+
+                                            </form:form> -->
+
+                                            <form:form action="/admin/user/update" method="post"
+                                                modelAttribute="newUser" enctype="multipart/form-data">
+
+                                                <div class="row mb-4" style="display: none;">
+                                                    <div class="col"> <label class="form-label">Id:</label>
+                                                        <form:input type="text" class="form-control" path="id" />
+                                                    </div>
+                                                </div>
+
+                                                <div class="row mb-4">
+                                                    <div class="col">
+                                                        <label class="form-label">Email:</label>
+                                                        <form:input type="email" class="form-control"
+                                                            placeholder="Email" path="email" disabled="true" />
+                                                    </div>
+                                                    <div class="col">
+                                                        <label for="exampleInputPassword1" class="form-label">Phone
+                                                            number:</label>
+                                                        <form:input type="text" class="form-control" path="phone" />
+                                                    </div>
+
+                                                </div>
+
+                                                <div class="row mb-4">
+                                                    <div class="col">
+                                                        <label class="form-label">Full Name:</label>
+                                                        <form:input type="text" class="form-control"
+                                                            placeholder="Full Name" path="fullName" />
+                                                    </div>
+                                                    <div class="col">
+                                                        <label class="form-label">Address:</label>
+                                                        <form:input type="text" class="form-control"
+                                                            placeholder="Address" path="address" />
+                                                    </div>
+                                                </div>
+                                                <div class="row mb-4">
+                                                    <div class="col">
+                                                        <label class="form-label">Role:</label>
+                                                        <form:select class="form-select" path="role.name">
+                                                            <form:option value="ADMIN">Admin</form:option>
+                                                            <form:option value="USER">User</form:option>
+                                                        </form:select>
+                                                    </div>
+                                                    <div class="col">
+                                                        <label for="avatarFile" class="form-label">Avatar:</label>
+                                                        <input class="form-control" type="file" id="avatarFile"
+                                                            accept=".png,.jpg,.jpeg" name="file" />
+                                                    </div>
+
+                                                </div>
+                                                <div class="row mb-4">
+                                                    <img style="max-height: 250px;display: none;" alt="avatar preview"
+                                                        id="avatarPreview">
+                                                </div>
+                                                <div class="row mb-4">
+                                                    <div class="col">
+                                                        <button type="submit" class="btn btn-warning">Update</button>
+                                                    </div>
+                                                </div>
                                                 </form>
                                             </form:form>
+
                                         </div>
                                     </div>
                                 </div>

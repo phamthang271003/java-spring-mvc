@@ -38,7 +38,8 @@ public class User {
     public User() {
     }
 
-    public User(long id, String email, String password, String fullName, String address, String phone, String avatar) {
+    public User(long id, String email, String password, String fullName, String address, String phone, String avatar,
+            Role role, List<Order> orders) {
         this.id = id;
         this.email = email;
         this.password = password;
@@ -46,6 +47,8 @@ public class User {
         this.address = address;
         this.phone = phone;
         this.avatar = avatar;
+        this.role = role;
+        this.orders = orders;
     }
 
     public long getId() {
@@ -102,6 +105,22 @@ public class User {
 
     public void setAvatar(String avatar) {
         this.avatar = avatar;
+    }
+
+    public Role getRole() {
+        return role;
+    }
+
+    public void setRole(Role role) {
+        this.role = role;
+    }
+
+    public List<Order> getOrders() {
+        return orders;
+    }
+
+    public void setOrders(List<Order> orders) {
+        this.orders = orders;
     }
 
     @Override

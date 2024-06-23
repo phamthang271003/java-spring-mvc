@@ -14,6 +14,17 @@
                 <link href="https://cdn.jsdelivr.net/npm/simple-datatables@7.1.2/dist/style.min.css" rel="stylesheet" />
                 <link href="/css/styles.css" rel="stylesheet" />
                 <script src="https://use.fontawesome.com/releases/v6.3.0/js/all.js" crossorigin="anonymous"></script>
+                <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+                <script>
+                    $(document).ready(() => {
+                        const avatarFile = $("#avatarFile");
+                        avatarFile.change(function (e) {
+                            const imgURL = URL.createObjectURL(e.target.files[0]);
+                            $("#avatarPreview").attr("src", imgURL);
+                            $("#avatarPreview").css({ "display": "block" });
+                        });
+                    });
+                </script>
             </head>
 
             <body class="sb-nav-fixed">
@@ -35,7 +46,7 @@
                                             <h3>Create a user</h3>
                                             <hr>
                                             <form:form action="/admin/user/create" method="post"
-                                                modelAttribute="newUser">
+                                                modelAttribute="newUser" enctype="multipart/form-data">
 
                                                 <div class="row mb-4">
                                                     <div class="col">
@@ -73,15 +84,15 @@
 
                                                     <div class="col">
                                                         <label class="form-label">Role:</label>
-                                                        <select class="form-select">
-                                                            <option value="ADMIN">Admin</option>
-                                                            <option value="USER">User</option>
-                                                        </select>
+                                                        <form:select class="form-select" path="role.name">
+                                                            <form:option value="ADMIN">Admin</form:option>
+                                                            <form:option value="USER">User</form:option>
+                                                        </form:select>
                                                     </div>
                                                     <div class="col">
                                                         <label for="avatarFile" class="form-label">Avatar:</label>
                                                         <input class="form-control" type="file" id="avatarFile"
-                                                            accept=".png,.jpg,.jpeg">
+                                                            accept=".png,.jpg,.jpeg" name="file" />
                                                     </div>
 
                                                 </div>
