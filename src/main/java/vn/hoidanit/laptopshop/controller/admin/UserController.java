@@ -5,6 +5,9 @@ import java.util.List;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
+import org.springframework.validation.FieldError;
+
 import vn.hoidanit.laptopshop.domain.User;
 import vn.hoidanit.laptopshop.service.UploadService;
 import vn.hoidanit.laptopshop.service.UserService;
@@ -13,7 +16,9 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.multipart.MultipartFile;
-import jakarta.servlet.ServletContext;
+
+import jakarta.validation.Valid;
+
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 
@@ -64,10 +69,20 @@ public class UserController {
     }
 
     @PostMapping(value = "/admin/user/create")
-    public String createUserPage(Model model, @ModelAttribute("newUser") User user,
+    public String createUserPage(Model model, @ModelAttribute("newUser") @Valid User user,
+            BindingResult newUserbindingResult,
             @RequestParam("file") MultipartFile file) {
+
+        List<FieldError> errors = newUserbindingResult.getFieldErrors();
+        for (FieldError error : errors) {
+            System.out.println(error.getField() + " - " + error.getDefaultMessage());
+        }
+        if (newUserbindingResult.hasErrors()) {
+            return "admin/user/create";
+        }
         String avatar = this.uploadService.handleSaveUploadFile(file, "avatar");
         String hashPassword = this.passwordEncoder.encode(user.getPassword());
+
         user.setAvatar(avatar);
         user.setPassword(hashPassword);
         user.setRole(this.userService.handleGetRoleByName(user.getRole().getName()));

@@ -36,37 +36,6 @@
                                         <div class="col-md-6 col-12 mx-auto">
                                             <h3>Update user</h3>
                                             <hr>
-                                            <!-- <form:form action="/admin/user/update" method="post"
-                                                modelAttribute="newUser">
-                                                <div class="mb-3" style="display: none;">
-                                                    <label class="form-label">Id:</label>
-                                                    <form:input type="text" class="form-control" path="id" />
-                                                </div>
-                                                <div class="mb-3">
-                                                    <label for="exampleInputEmail1" class="form-label">Email:</label>
-                                                    <form:input type="email" class="form-control"
-                                                        aria-describedby="emailHelp" path="email" disabled="true" />
-                                                </div>
-
-                                                <div class="mb-3">
-                                                    <label for="exampleInputPassword1" class="form-label">Phone
-                                                        number:</label>
-                                                    <form:input type="text" class="form-control" path="phone" />
-                                                </div>
-                                                <div class="mb-3">
-                                                    <label for="exampleInputPassword1" class="form-label">Full
-                                                        Name:</label>
-                                                    <form:input type="text" class="form-control" path="fullName" />
-                                                </div>
-                                                <div class="mb-3">
-                                                    <label for="exampleInputPassword1"
-                                                        class="form-label">Address:</label>
-                                                    <form:input type="text" class="form-control" path="address" />
-                                                </div>
-
-                                                <button type="submit" class="btn btn-warning">Update</button>
-
-                                            </form:form> -->
 
                                             <form:form action="/admin/user/update" method="post"
                                                 modelAttribute="newUser" enctype="multipart/form-data">
