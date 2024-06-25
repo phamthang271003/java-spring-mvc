@@ -98,7 +98,7 @@
                                                         <form:textarea
                                                             class="form-control ${not empty errorDetailDesc ? 'is-invalid' : ''}"
                                                             placeholder="Detail description" path="detailDesc"
-                                                            rows="3" />
+                                                            rows="5" />
                                                         ${errorDetailDesc}
                                                     </div>
                                                 </div>
