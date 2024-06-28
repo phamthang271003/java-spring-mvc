@@ -32,6 +32,7 @@ public class User {
 
     @NotNull
     @NotEmpty(message = "Full name must not be empty")
+    @Size(min = 3, message = "Full name must be at least 3 characters")
     private String fullName;
 
     private String address;

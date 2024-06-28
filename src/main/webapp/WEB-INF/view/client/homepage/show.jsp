@@ -72,7 +72,7 @@
 
                 <jsp:include page="../layout/banner.jsp" />
 
-                <jsp:include page="../layout/feature.jsp" />
+
 
 
                 <!-- Fruits Shop Start-->
@@ -139,6 +139,7 @@
                             </div>
                         </div>
                     </div>
+                    <jsp:include page="../layout/feature.jsp" />
                 </div>
                 <!-- Fruits Shop End-->
 
