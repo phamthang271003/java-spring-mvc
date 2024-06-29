@@ -84,6 +84,7 @@
                                                                     <label for="inputPassword">Password</label>
                                                                     ${errorPassword}
                                                                     ${errorConfirmPassword}
+
                                                                 </div>
                                                             </div>
                                                             <div class="col-md-6">
@@ -94,6 +95,7 @@
                                                                         path="confirmPassword" />
                                                                     <label for="inputPasswordConfirm">Confirm
                                                                         Password</label>
+
                                                                 </div>
                                                             </div>
                                                         </div>

@@ -50,6 +50,7 @@ public class UserService {
         return this.roleRepository.findByName(name);
     }
 
+    // Mapper
     public User registerDTOToUser(RegisterDTO registerDTO) {
         User user = new User();
         user.setFullName(registerDTO.getFirstName() + "" + registerDTO.getLastName());

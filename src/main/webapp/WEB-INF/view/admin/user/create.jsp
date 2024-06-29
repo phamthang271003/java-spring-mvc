@@ -122,7 +122,6 @@
                                                         <button type="submit" class="btn btn-primary">Create</button>
                                                     </div>
                                                 </div>
-                                                </form>
                                             </form:form>
                                         </div>
                                     </div>

@@ -35,26 +35,14 @@ public class UserController {
         this.passwordEncoder = passwordEncoder;
     }
 
-    @RequestMapping("/")
-    public String getHomePage(Model model) {
-        // List<User> arrUsers = this.userService.handleGetAllUser();
-        // List<User> arrUsers =
-        // this.userService.handleGetUserByEmail("phamtranquangthang03@gmail.com");
-
-        // System.out.println(arrUsers);
-        model.addAttribute("thang", "test");
-        model.addAttribute("phamthang", "From with Model");
-        return "hello";
-    }
-
-    @RequestMapping("/admin/user")
+    @GetMapping("/admin/user")
     public String getUserPage(Model model) {
         List<User> users = this.userService.handleGetAllUser();
         model.addAttribute("users", users);
         return "admin/user/show";
     }
 
-    @RequestMapping("/admin/user/{id}")
+    @GetMapping("/admin/user/{id}")
     public String getDetailUserPage(Model model, @PathVariable long id) {
         User user = this.userService.handleGetUserById(id);
         model.addAttribute("user", user);
@@ -68,7 +56,7 @@ public class UserController {
         return "admin/user/create";
     }
 
-    @PostMapping(value = "/admin/user/create")
+    @PostMapping("/admin/user/create")
     public String createUserPage(Model model, @ModelAttribute("newUser") @Valid User user,
             BindingResult newUserbindingResult,
             @RequestParam("file") MultipartFile file) {
