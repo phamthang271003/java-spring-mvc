@@ -39,6 +39,12 @@ public class CustomSuccessHanlde implements AuthenticationSuccessHandler {
         if (user != null) {
             session.setAttribute("fullName", user.getFullName());
             session.setAttribute("avatar", user.getAvatar());
+            session.setAttribute("email", user.getEmail());
+            session.setAttribute("id", user.getId());
+
+            int sum = user.getCart() == null ? 0 : user.getCart().getSum();
+            session.setAttribute("sum", sum);
+
         }
 
     }
@@ -55,8 +61,8 @@ public class CustomSuccessHanlde implements AuthenticationSuccessHandler {
             if (roleTargetUrlMap.containsKey(authorityName)) {
                 return roleTargetUrlMap.get(authorityName);
             }
-        }
 
+        }
         throw new IllegalStateException();
     }
 
@@ -66,7 +72,6 @@ public class CustomSuccessHanlde implements AuthenticationSuccessHandler {
         String targetUrl = determineTargetUrl(authentication);
 
         if (response.isCommitted()) {
-
             return;
         }
 
