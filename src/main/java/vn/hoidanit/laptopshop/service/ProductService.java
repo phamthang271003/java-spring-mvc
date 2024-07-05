@@ -1,5 +1,7 @@
 package vn.hoidanit.laptopshop.service;
 
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
 import jakarta.servlet.http.HttpSession;
@@ -40,8 +42,8 @@ public class ProductService {
         this.orderDetailRepository = orderDetailRepository;
     }
 
-    public List<Product> handleGetAllProduct() {
-        return this.productRepository.findAll();
+    public Page<Product> handleGetAllProduct(Pageable pageable) {
+        return this.productRepository.findAll(pageable);
     }
 
     public Optional<Product> handleGetProductById(Long id) {
