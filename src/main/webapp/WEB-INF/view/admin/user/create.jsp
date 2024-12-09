@@ -102,8 +102,8 @@
                                                     <div class="col">
                                                         <label class="form-label">Role:</label>
                                                         <form:select class="form-select" path="role.name">
-                                                            <form:option value="ADMIN">Admin</form:option>
-                                                            <form:option value="USER">User</form:option>
+                                                            <form:option value="ADMIN">Admin</option>
+                                                                <form:option value="USER">User</option>
                                                         </form:select>
                                                     </div>
                                                     <div class="col">
@@ -114,8 +114,8 @@
 
                                                 </div>
                                                 <div class="row mb-4">
-                                                    <img src="" style="max-height: 250px;display: none;"
-                                                        alt="avatar preview" id="avatarPreview">
+                                                    <img style="max-height: 250px;display: none;" alt="avatar preview"
+                                                        id="avatarPreview">
                                                 </div>
                                                 <div class="row mb-4">
                                                     <div class="col">

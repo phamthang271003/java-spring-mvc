@@ -1,5 +1,6 @@
 package vn.hoidanit.laptopshop.domain;
 
+import java.io.Serializable;
 import java.util.List;
 
 import jakarta.persistence.Entity;
@@ -13,7 +14,7 @@ import jakarta.persistence.Table;
 
 @Entity
 @Table(name = "orders")
-public class Order {
+public class Order implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
@@ -27,6 +28,36 @@ public class Order {
     private String receiverPhone;
 
     private String status;
+
+    private String paymentRef;
+
+    private String paymentStatus;
+
+    private String paymentMethod;
+
+    public String getPaymentRef() {
+        return paymentRef;
+    }
+
+    public void setPaymentRef(String paymentRef) {
+        this.paymentRef = paymentRef;
+    }
+
+    public String getPaymentStatus() {
+        return paymentStatus;
+    }
+
+    public void setPaymentStatus(String paymentStatus) {
+        this.paymentStatus = paymentStatus;
+    }
+
+    public String getPaymentMethod() {
+        return paymentMethod;
+    }
+
+    public void setPaymentMethod(String paymentMethod) {
+        this.paymentMethod = paymentMethod;
+    }
 
     // user id
     @ManyToOne

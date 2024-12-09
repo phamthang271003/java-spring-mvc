@@ -1,9 +1,10 @@
 package vn.hoidanit.laptopshop.domain;
 
 import java.util.Optional;
+import java.io.Serializable;
 import java.util.List;
 
-public class ProductCriteriaDTO {
+public class ProductCriteriaDTO implements Serializable {
     private Optional<String> page;
     private Optional<List<String>> factory;
     private Optional<List<String>> target;

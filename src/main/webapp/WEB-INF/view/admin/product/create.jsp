@@ -134,13 +134,13 @@
                                                     </div>
 
                                                 </div>
-                                                <div class="row mb-4">
+                                                <!-- <div class="row mb-4">
                                                     <div class="col">
                                                         <label for="avatarFile" class="form-label">Image:</label>
                                                         <input class="form-control" type="file" id="avatarFile"
                                                             accept=".png,.jpg,.jpeg" name="file" />
                                                     </div>
-                                                </div>
+                                                </div> -->
                                                 <div class="row mb-4">
                                                     <img src="" style="max-height: 250px;display: none;"
                                                         alt="avatar preview" id="avatarPreview">

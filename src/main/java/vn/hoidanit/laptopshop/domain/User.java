@@ -1,5 +1,6 @@
 package vn.hoidanit.laptopshop.domain;
 
+import java.io.Serializable;
 import java.util.List;
 
 import jakarta.persistence.Entity;
@@ -18,7 +19,7 @@ import jakarta.validation.constraints.Size;
 
 @Entity
 @Table(name = "users")
-public class User {
+public class User implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;

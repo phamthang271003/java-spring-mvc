@@ -9,6 +9,8 @@ import jakarta.servlet.http.HttpSession;
 
 import java.util.List;
 import java.util.Optional;
+import java.util.UUID;
+
 import vn.hoidanit.laptopshop.domain.Cart;
 import vn.hoidanit.laptopshop.domain.CartDetail;
 import vn.hoidanit.laptopshop.domain.Order;
@@ -288,7 +290,7 @@ public class ProductService {
 
     public void handlePlaceOrder(
             User user, HttpSession session,
-            String receiverName, String receiverAddress, String receiverPhone) {
+            String receiverName, String receiverAddress, String receiverPhone, String paymentMethod, String uuid) {
 
         // step 1: get cart by user
         Cart cart = this.cartRepository.findByUser(user);
@@ -305,6 +307,9 @@ public class ProductService {
                 order.setReceiverPhone(receiverPhone);
                 order.setStatus("PENDING");
 
+                order.setPaymentMethod(paymentMethod);
+                order.setPaymentStatus("PAYMENT_UNPAID");
+                order.setPaymentRef(paymentMethod.equals("COD") ? null : uuid);
                 double sum = 0;
                 for (CartDetail cd : cartDetails) {
                     sum += cd.getPrice();
@@ -334,8 +339,19 @@ public class ProductService {
                 // step 3 : update session
                 session.setAttribute("sum", 0);
             }
+
         }
 
+    }
+
+    public void updatePaymentStatus(String paymentRef, String paymentStatus) {
+        Optional<Order> orderOptional = this.orderRepository.findByPaymentRef(paymentRef);
+        if (orderOptional.isPresent()) {
+            // update
+            Order order = orderOptional.get();
+            order.setPaymentStatus(paymentStatus);
+            this.orderRepository.save(order);
+        }
     }
 
 }

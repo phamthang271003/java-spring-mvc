@@ -141,6 +141,25 @@
                                                         <label>Số điện thoại</label>
                                                         <input class="form-control" name="receiverPhone" required />
                                                     </div>
+
+                                                    <div class="col-12 form-group mb-3">
+                                                        <label for="">Hình thức thanh toán</label>
+                                                        <div class="form-check">
+                                                            <input type="radio" class="form-check-input"
+                                                                name="paymentMethod" value="COD" id="COD" checked>
+                                                            <label for="" class="form-check-label" for="COD">Thanh toán
+                                                                khi nhận hàng</label>
+                                                        </div>
+                                                        <div class="form-check">
+                                                            <input type="radio" class="form-check-input"
+                                                                name="paymentMethod" value="BANKING" id="BANKING">
+                                                            <label for="" class="form-check-label" for="BANKING">Thanh
+                                                                toán
+                                                                bằng ví VNPAY</label>
+                                                            <input style="display:none;" value="${totalPrice}"
+                                                                name="totalPrice">
+                                                        </div>
+                                                    </div>
                                                     <div class="mt-4">
                                                         <i class="fas fa-arrow-left"></i>
                                                         <a href="/cart">Quay lại giỏ hàng</a>
